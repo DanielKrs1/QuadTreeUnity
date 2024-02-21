@@ -2,17 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Invoker : MonoBehaviour
+public class Invoker 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ // TODO: Everything :skull:
+ // List of commands for undo/redo, actual command pattern stuff whatever else
 }

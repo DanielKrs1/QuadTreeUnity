@@ -5,14 +5,13 @@ using UnityEngine;
 public class CommandMakeUnit : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Execute()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
+    void Undo()
+    {
+
+    }
+    
 }

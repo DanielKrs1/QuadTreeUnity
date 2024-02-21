@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
+    private static CameraManager _instance;
+    public static CameraManager Instance { get {return _instance;}}
+
+    protected void Awake() 
+    {
+        if (_instance != null && _instance != this) // singleton
+        {
+            Destroy(this);
+        } 
+        else
+        {
+            _instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

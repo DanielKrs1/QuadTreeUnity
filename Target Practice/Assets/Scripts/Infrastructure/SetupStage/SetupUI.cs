@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SetupUI : MonoBehaviour
 {
+    // TODO: Everything. I have legitimately no idea how to do UI pain
     // Start is called before the first frame update
     void Start()
     {

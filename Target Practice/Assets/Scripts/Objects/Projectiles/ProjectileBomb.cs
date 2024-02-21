@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileBomb : MonoBehaviour
-{
+public class ProjectileBomb : MonoBehaviour, IProjectile
+{ // TODO: Pursuit code
+    public void Initialize(Vector2 target) 
+    {
+    
+    }
+
     // Start is called before the first frame update
     void Start()
     {

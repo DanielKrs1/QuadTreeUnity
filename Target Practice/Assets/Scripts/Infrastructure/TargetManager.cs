@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class TargetManager : MonoBehaviour
 {
+    private static TargetManager _instance;
+    public static TargetManager Instance { get {return _instance;}}
+
+    protected void Awake() 
+    {
+        if (_instance != null && _instance != this) // singleton
+        {
+            Destroy(this);
+        } 
+        else
+        {
+            _instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +29,6 @@ public class TargetManager : MonoBehaviour
     {
         
     }
+
+    // TODO: When round starts, spawn and shuffle around the targets
 }
