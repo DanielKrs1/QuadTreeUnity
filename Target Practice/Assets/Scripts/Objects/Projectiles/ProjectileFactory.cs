@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileFactory<T> : MonoBehaviour where T : IProjectile
+public class ProjectileFactory<T> : MonoBehaviour where T : Projectile
 {
     public GameObject Prefab;
 
-    public T Summon(Vector2 position, Vector2 target)
+    public T Summon(Vector2 position, GameObject target)
     {
         // Summon a projectile.
         GameObject product = Instantiate(Prefab, position, Quaternion.identity);

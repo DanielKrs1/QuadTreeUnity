@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileBomb : MonoBehaviour, IProjectile
 { // TODO: Pursuit code
-    public void Initialize(Vector2 target) 
+    public void Initialize(Transform target) 
     {
     
     }
