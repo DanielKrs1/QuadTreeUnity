@@ -7,9 +7,9 @@ public class Target : MonoBehaviour
     // TODO: Actually do things, look up type object
     public int ID; // For the object pool to easily find it when it dies
     public TargetType Type;
-    public double CurHealth; // TODO: Set to max health on instantiation
+    public int CurHealth; // TODO: Set to max health on instantiation
 
-    public void TakeDamage(double damage)
+    public void TakeDamage(int damage)
     {
         CurHealth -= damage;
         if (CurHealth <= 0)

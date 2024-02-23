@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RechargerStateRunning : MonoBehaviour
+public class SprinterStateFiring : ISprinterState
 {
     // Start is called before the first frame update
     void Start()

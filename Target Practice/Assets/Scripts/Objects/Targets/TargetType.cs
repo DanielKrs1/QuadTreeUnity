@@ -5,6 +5,6 @@ using UnityEngine;
 public class TargetType
 {
     public string SpritePath;
-    public float MaxHealth;
-    public float Reward;
+    public int MaxHealth;
+    public int Reward;
 }

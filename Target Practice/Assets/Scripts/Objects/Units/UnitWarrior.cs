@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class UnitWarrior : Unit
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void Init()
     {
-        
+        _fact = ServiceLocator.BulletFactory;
+        Cooldown = 3000;
     }
-
-    // Update is called once per frame
-    void Update()
+    protected override void DoOnCooldown()
     {
-        
+
+    }
+    protected override void Move()
+    {
+
     }
 }

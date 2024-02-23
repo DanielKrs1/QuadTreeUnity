@@ -19,8 +19,9 @@ public class ServiceLocator : MonoBehaviour
 
     public static TypeService Types { get; private set; }
 
-    public static ProjectileFactory<ProjectileBullet> BulletFactory { get; private set; }
-    public static ProjectileFactory<ProjectileBomb> BombFactory { get; private set; }
+    public static BulletFactory BulletFactory { get; private set; }
+    public static BombFactory BombFactory { get; private set; }
+    public static GameStateManager GameState {get; private set;}
     protected void Awake()
     {
         if (_instance != null && _instance != this) // singleton
@@ -36,10 +37,11 @@ public class ServiceLocator : MonoBehaviour
         Invoker = new Invoker();
         Pool = gameObject.AddComponent<TargetPool>();
         Types = new TypeService(TypeJSONPath);
-        BulletFactory = gameObject.AddComponent<ProjectileFactory<ProjectileBullet>>();
+        BulletFactory = gameObject.AddComponent<BulletFactory>();
         BulletFactory.Prefab = BulletPrefab;
-        BombFactory = gameObject.AddComponent<ProjectileFactory<ProjectileBomb>>();
+        BombFactory = gameObject.AddComponent<BombFactory>();
         BombFactory.Prefab = BombPrefab;
+        GameState = gameObject.AddComponent<GameStateManager>();
 
     }
 

@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileFactory<T> : MonoBehaviour where T : Projectile
+public class BombFactory : MonoBehaviour, IProjectileFactory
 {
     public GameObject Prefab;
 
-    public T Summon(Vector2 position, GameObject target)
+    public Projectile Summon(Vector2 position, Transform target)
     {
         // Summon a projectile.
         GameObject product = Instantiate(Prefab, position, Quaternion.identity);
-        T projectile = product.GetComponent<T>();
+        ProjectileBomb projectile = product.GetComponent<ProjectileBomb>();
 
         // Make the projectile pursue the target
         projectile.Initialize(target);

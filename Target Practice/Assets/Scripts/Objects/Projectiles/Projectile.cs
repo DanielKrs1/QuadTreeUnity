@@ -7,6 +7,6 @@ public abstract class Projectile : MonoBehaviour
     public abstract void Initialize(Transform target);
 
     void Aim(Transform target) {
-        Transform.LookAt(target);
+        transform.LookAt(target);
     }
 }

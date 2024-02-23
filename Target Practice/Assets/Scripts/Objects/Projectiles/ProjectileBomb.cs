@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileBomb : MonoBehaviour, IProjectile
+public class ProjectileBomb : Projectile
 { // TODO: Pursuit code
-    public void Initialize(Transform target) 
+    public override void Initialize(Transform target) 
     {
     
     }
