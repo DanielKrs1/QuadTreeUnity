@@ -17,7 +17,7 @@ public class UnitManager : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("Spawn", FirstSpawnTime, SpawnIntervalConst);
+        
     }
 
     // Update is called once per frame
@@ -27,11 +27,26 @@ public class UnitManager : MonoBehaviour
     }
 
     
-    public void Spawn()
+    public void SpawnBomber()
     {
         if (isSummoning)
         {
-            Instantiate(units[UnityEngine.Random.Range(0, units.Length)], new Vector3(UnityEngine.Random.Range(-SpawnXRange, SpawnXRange), UnityEngine.Random.Range(-SpawnYRange, SpawnYRange), 0), Quaternion.identity);
+            Instantiate(units[0], new Vector3(UnityEngine.Random.Range(-SpawnXRange, SpawnXRange), UnityEngine.Random.Range(-SpawnYRange, SpawnYRange), 0), Quaternion.identity);
         }
     }
+    public void SpawnSprinter()
+    {
+        if (isSummoning)
+        {
+            Instantiate(units[1], new Vector3(UnityEngine.Random.Range(-SpawnXRange, SpawnXRange), UnityEngine.Random.Range(-SpawnYRange, SpawnYRange), 0), Quaternion.identity);
+        }
+    }
+    public void SpawnWarrior()
+    {
+        if (isSummoning)
+        {
+            Instantiate(units[2], new Vector3(UnityEngine.Random.Range(-SpawnXRange, SpawnXRange), UnityEngine.Random.Range(-SpawnYRange, SpawnYRange), 0), Quaternion.identity);
+        }
+    }
+
 }
