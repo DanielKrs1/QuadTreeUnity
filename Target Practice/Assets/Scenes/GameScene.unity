@@ -2516,6 +2516,7 @@ MonoBehaviour:
   TypeJSONPath: types
   BulletPrefab: {fileID: 0}
   BombPrefab: {fileID: 0}
+  TargetPrefab: {fileID: 0}
 --- !u!4 &757654791
 Transform:
   m_ObjectHideFlags: 0
