@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletFactory : MonoBehaviour, IProjectileFactory
-{
+{ // PATTERN 7: FACTORY
     public GameObject Prefab;
 
-    public Projectile Summon(Vector2 position, Transform target)
+    public Projectile Summon(Vector3 position, Transform target)
     {
         // Summon a projectile.
         GameObject product = Instantiate(Prefab, position, Quaternion.identity);

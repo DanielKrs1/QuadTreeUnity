@@ -1,0 +1,29 @@
+[
+    {
+        "SpritePath": "cyan",
+        "MaxHealth": 3,
+        "Reward": 1,
+        "Size": 1.0,
+        "Sprite": {
+            "instanceID": 0
+        }
+    },
+    {
+        "SpritePath": "yellow",
+        "MaxHealth": 6,
+        "Reward": 2,
+        "Size": 1.5,
+        "Sprite": {
+            "instanceID": 0
+        }
+    },
+    {
+        "SpritePath": "red",
+        "MaxHealth": 9,
+        "Reward": 3,
+        "Size": 2.0,
+        "Sprite": {
+            "instanceID": 0
+        }
+    }
+]

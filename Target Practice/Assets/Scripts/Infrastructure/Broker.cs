@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Broker
-{
+{ // PATTERN 4: PUBLISHER AND SUBSCRIBER
 
     public delegate void TargetDeath(Target target);
     private TargetDeath SendDeath;

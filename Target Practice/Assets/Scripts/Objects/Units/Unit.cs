@@ -7,12 +7,12 @@ public abstract class Unit : MonoBehaviour
     // TODO: Figure something out with Behaviour.enabled to make onStart and onEnd work
     // (obv need to subscribe to start and end)
 
-    public Vector2 OriginalPos { get; set; }
+    public Vector3 OriginalPos { get; set; }
 
     protected float _nextActionTime = 0.0f;
     protected Target _curTarget;
 
-    // CHANGE THIS IN SUBCLASSES
+    // CHANGE THIS IN SUBCLASSES - PATTERN 5: SUBCLASS SANDBOX
     protected IProjectileFactory _fact {get; set;}
     public float Cooldown {get; set;}
     protected abstract void Init();
@@ -20,6 +20,7 @@ public abstract class Unit : MonoBehaviour
     protected abstract void DoOnCooldown();
     void Start()
     {
+        OriginalPos = transform.position;
         ServiceLocator.Broker.SubStart(OnStart);
         ServiceLocator.Broker.SubEnd(OnEnd);
     }

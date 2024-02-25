@@ -9,10 +9,10 @@ public class StatsDisplayer : MonoBehaviour
     public TMP_Text moneyText;
     public TMP_Text scoreText;
     public TMP_Text roundText;
-    public StatsManager statsManager;
+    public GameStateManager gameState;
     void Start()
     {
-        
+        gameState = ServiceLocator.GameState;
         moneyText = GameObject.Find("MoneyText").GetComponent<TMP_Text>();
         scoreText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
         roundText = GameObject.Find("RoundNumberText").GetComponent<TMP_Text>();
@@ -21,10 +21,10 @@ public class StatsDisplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyText.text = "Money: "+statsManager.money;
-        scoreText.text = "Score: " + statsManager.score;
-        roundText.text = "Round " + statsManager.round;
-        if (statsManager.phase == 1)
+        moneyText.text = "Money: "+ gameState.Money;
+        scoreText.text = "Score: " + gameState.Score;
+        roundText.text = "Round " + gameState.Round;
+        if (gameState.Phase == 1)
         {
             roundText.text += "\nBUY PHASE";
         }

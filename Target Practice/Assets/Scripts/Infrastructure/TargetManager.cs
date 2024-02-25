@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class TargetManager : MonoBehaviour
 {
+    public int[] TargetCount;
     private static TargetManager _instance;
     public static TargetManager Instance { get {return _instance;}}
 
     protected void Awake() 
     {
-        if (_instance != null && _instance != this) // singleton
+        if (_instance != null && _instance != this) // PATTERN 1: SINGLETON
         {
             Destroy(this);
         } 
@@ -21,14 +22,13 @@ public class TargetManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ServiceLocator.Broker.SubStart(OnStart);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnStart() 
     {
-        
+        int roundIdx = ServiceLocator.GameState.Round - 1;
+        ServiceLocator.Pool.SummonTargets(TargetCount[roundIdx]);
     }
 
-    // TODO: When round starts, spawn and shuffle around the targets
 }

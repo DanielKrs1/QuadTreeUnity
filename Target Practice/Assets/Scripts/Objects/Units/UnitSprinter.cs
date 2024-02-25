@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitSprinter : Unit
 {
-    private ISprinterState _state;
+    private ISprinterState _state;  // PATTERN 6: STATE
     protected override void Init()
     {
         _fact = ServiceLocator.BulletFactory;

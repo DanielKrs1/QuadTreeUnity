@@ -11,7 +11,7 @@ public class Partitioner
     }
 
     // TODO: Get a list of nearby targets using the quadtree
-    public List<Target> GetNearbyTargets(Vector2 position, double range) {
+    public List<Target> GetNearbyTargets(Vector3 position, double range) {
         return null;
     }
 }

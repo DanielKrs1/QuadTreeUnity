@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour
 
     protected void Awake() 
     {
-        if (_instance != null && _instance != this) // singleton
+        if (_instance != null && _instance != this) // PATTERN 1: SINGLETON
         {
             Destroy(this);
         } 
