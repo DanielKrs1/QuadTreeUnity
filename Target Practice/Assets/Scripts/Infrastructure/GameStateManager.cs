@@ -37,10 +37,11 @@ public class GameStateManager : MonoBehaviour
     void Win() 
     { // Instantiate a temporary object for the win screen
 
-        SceneManager.LoadScene("WinScene"); 
+         
         GameObject winObj = new GameObject("Win Screen");
         winObj.AddComponent<WinScreen>();
         winObj.GetComponent<WinScreen>().score = Score;
+        SceneManager.LoadScene("WinScene");
         
     }
     // Start is called before the first frame update
