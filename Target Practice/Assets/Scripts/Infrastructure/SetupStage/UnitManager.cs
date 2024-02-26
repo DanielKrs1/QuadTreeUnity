@@ -18,6 +18,7 @@ public class UnitManager : MonoBehaviour
     public Vector3 secondToLastClick;
     public Vector3 lastClick;
     public GameObject mainCamera;
+    public int currentUnitType = 0;
 
     void Start()
     {
@@ -25,20 +26,21 @@ public class UnitManager : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0) && Input.GetKey(KeyCode.LeftShift)) 
         {
-            secondToLastClick = lastClick;
             lastClick = mainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
             lastClick.z = 0;
+            BuyUnit(currentUnitType, lastClick);
 
         }
     }
 
-    public void BuyUnitAtLastClick(int unitID)
+    public void setUnitType(int unitID)
     {
-        BuyUnit(unitID, secondToLastClick);
+        currentUnitType = unitID;
     }
     public void BuyUnit(int unitID, Vector3 inputPosititon) // TODO: Take a position parameter // Yep does that now
     {

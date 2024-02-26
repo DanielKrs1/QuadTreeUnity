@@ -960,7 +960,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1033889169}
         m_TargetAssemblyTypeName: UnitManager, Assembly-CSharp
-        m_MethodName: BuyUnitAtLastClick
+        m_MethodName: setUnitType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2487,7 +2487,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1033889169}
         m_TargetAssemblyTypeName: UnitManager, Assembly-CSharp
-        m_MethodName: BuyUnitAtLastClick
+        m_MethodName: setUnitType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3262,6 +3262,7 @@ MonoBehaviour:
   secondToLastClick: {x: 0, y: 0, z: 0}
   lastClick: {x: 0, y: 0, z: 0}
   mainCamera: {fileID: 519420028}
+  currentUnitType: 0
 --- !u!4 &1033889170
 Transform:
   m_ObjectHideFlags: 0
@@ -4101,7 +4102,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1033889169}
         m_TargetAssemblyTypeName: UnitManager, Assembly-CSharp
-        m_MethodName: BuyUnitAtLastClick
+        m_MethodName: setUnitType
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
