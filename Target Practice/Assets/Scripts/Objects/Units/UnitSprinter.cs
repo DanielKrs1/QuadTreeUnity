@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitSprinter : Unit
-{
-    public ISprinterState State;  // PATTERN 6: STATE
+{ // PATTERN 6: STATE
+    public ISprinterState State;  
     protected override void Init()
     {
         _fact = ServiceLocator.BulletFactory;

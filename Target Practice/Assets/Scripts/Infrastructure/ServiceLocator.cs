@@ -27,8 +27,8 @@ public class ServiceLocator : MonoBehaviour
 
     public static QuadTree<Target> QuadTree { get; private set; }
     protected void Awake()
-    {
-        if (_instance != null && _instance != this) // PATTERN 1: SINGLETON
+    { // PATTERN 1: SINGLETON
+        if (_instance != null && _instance != this) 
         {
             Destroy(this);
         }

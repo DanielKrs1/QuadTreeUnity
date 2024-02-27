@@ -12,7 +12,7 @@ public abstract class Unit : MonoBehaviour
     protected float _nextActionTime = 0.0f;
     public Target _curTarget;
 
-    // CHANGE THIS IN SUBCLASSES - PATTERN 5: SUBCLASS SANDBOX
+    // PATTERN 5: SUBCLASS SANDBOX
     protected IProjectileFactory _fact { get; set; }
     public float Cooldown { get; set; }
     protected abstract void Init();

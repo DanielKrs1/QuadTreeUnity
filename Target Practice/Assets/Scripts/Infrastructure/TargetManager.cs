@@ -9,8 +9,8 @@ public class TargetManager : MonoBehaviour
     public static TargetManager Instance { get {return _instance;}}
 
     protected void Awake() 
-    {
-        if (_instance != null && _instance != this) // PATTERN 1: SINGLETON
+    { // PATTERN 1: SINGLETON
+        if (_instance != null && _instance != this) 
         {
             Destroy(this);
         } 

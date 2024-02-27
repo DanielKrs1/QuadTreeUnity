@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public TargetType Type; // PATTERN 9: TYPE OBJECT
+    public TargetType Type; 
     public int CurHealth; 
     public bool IsDead;
 
