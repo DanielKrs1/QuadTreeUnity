@@ -32,7 +32,7 @@ public class KeyChecker : MonoBehaviour
         cam.orthographicSize += zoomInput;
 
         if (cam.orthographicSize < 20) { cam.orthographicSize = 20; }
-        if (cam.orthographicSize > 100) { cam.orthographicSize = 100; }
+        if (cam.orthographicSize > 150) { cam.orthographicSize = 150; }
 
 
     }

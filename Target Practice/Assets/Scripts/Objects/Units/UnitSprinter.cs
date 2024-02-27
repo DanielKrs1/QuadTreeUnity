@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class UnitSprinter : Unit
 {
-    private ISprinterState _state;  // PATTERN 6: STATE
+    public ISprinterState State;  // PATTERN 6: STATE
     protected override void Init()
     {
         _fact = ServiceLocator.BulletFactory;
-        Cooldown = 3000;
+        Cooldown = 1.5f;
+        State = new SprinterStateRunning();
     }
     protected override void DoOnCooldown()
     {
-
+        State.Change(this);
     }
     protected override void Move()
     {
-
+        State.Act(this);
     }
+
 }

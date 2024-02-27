@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 using TMPro;
 
 
-public class UnitManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject[] units;
@@ -92,6 +92,14 @@ public class UnitManager : MonoBehaviour
         {
             CommandBuyUnit command = new CommandBuyUnit(prices[unitID], units[unitID], position);
             ServiceLocator.Invoker.Execute(command);
+        }
+    }
+
+    public void StartRound()
+    {
+        if (ServiceLocator.GameState.Phase == 1)
+        {
+            ServiceLocator.Broker.PubStart();
         }
     }
 }

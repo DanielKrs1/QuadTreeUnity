@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class SprinterStateRunning : ISprinterState
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Act(UnitSprinter sprinter)
     {
-        
+        sprinter._curTarget = sprinter.strongestWithinRange(50.0f);
+        if (Vector3.Distance(sprinter.transform.position, sprinter._curTarget.transform.position) > 1.0f)
+        {
+            sprinter.Aim(sprinter._curTarget);
+            sprinter.MoveForward(45);
+        }
+        else
+        {
+            Change(sprinter);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Change(UnitSprinter sprinter)
     {
-        
+        sprinter.State = new SprinterStateFiring();
     }
 }

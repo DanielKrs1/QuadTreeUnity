@@ -5,28 +5,23 @@ using UnityEngine;
 
 public class UnitBomber : Unit
 {
-    
+
     protected override void Init()
     {
         _fact = ServiceLocator.BombFactory;
-        Cooldown = 3000;
-        
-        Debug.Log("huh");
+        Cooldown = 1;
     }
+
+
     protected override void DoOnCooldown()
     {
-        
+        _curTarget = strongestWithinRange(100.0f);
+        Aim(_curTarget);
+        if (_curTarget != null) Fire(_curTarget);
     }
-    
+
     protected override void Move()
     {
-        if (gameState.Phase == 2)
-        {
-            transform.Translate(Vector3.right * Time.deltaTime * Random.Range(0, 100));
-            transform.Translate(Vector3.up * Time.deltaTime * Random.Range(0, 100));
-            transform.Translate(Vector3.left * Time.deltaTime * Random.Range(0, 100));
-            transform.Translate(Vector3.down * Time.deltaTime * Random.Range(0, 100));
-        }
-
+        MoveForward(25);
     }
 }
