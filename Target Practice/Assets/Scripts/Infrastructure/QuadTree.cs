@@ -71,34 +71,23 @@ public class QuadTree<T> where T : MonoBehaviour {
         isDivided = true;
     }
 
-    public T Query(Vector2 position, float radius) {
+    public List<T> Query(Vector2 position, float radius) {
         Rect queryRect = new Rect(position, Vector2.one * radius);
-        T closestT = null;
-        float shortestDistance = float.MaxValue;
+        List<T> inRange = new List<T>();
 
         foreach (T item in items) {
-            float distance = Vector2.Distance(item.transform.position, position);
-
-            if (distance < shortestDistance) {
-                shortestDistance = distance;
-                closestT = item;
+            if (Vector2.Distance(item.transform.position, position) <= radius) {
+                inRange.Add(item);
             }
         }
 
         foreach (QuadTree<T> child in children) {
             if (!queryRect.Overlaps(child.rect)) continue;
 
-            T t = child.Query(position, radius);
-
-            float distance = Vector2.Distance(t.transform.position, position);
-
-            if (distance < shortestDistance) {
-                shortestDistance = distance;
-                closestT = t;
-            }
+            inRange.AddRange(child.Query(position, radius));
         }
 
-        return closestT;
+        return inRange;
     }
 
     public void DrawDebugGizmos() {
