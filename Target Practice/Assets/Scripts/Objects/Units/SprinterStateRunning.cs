@@ -10,7 +10,7 @@ public class SprinterStateRunning : ISprinterState
         if (Vector3.Distance(sprinter.transform.position, sprinter._curTarget.transform.position) > 1.0f)
         {
             sprinter.Aim(sprinter._curTarget);
-            sprinter.MoveForward(45);
+            sprinter.MoveForward(100);
         }
         else
         {
