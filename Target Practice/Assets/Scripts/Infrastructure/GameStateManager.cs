@@ -22,7 +22,7 @@ public class GameStateManager : MonoBehaviour
         Phase = 1;
     }
     void OnStart() {
-        Phase = 0;
+        Phase = 1;
     }
     public bool SpendMoney(int m) {
         if (Money >= m) {
@@ -36,10 +36,13 @@ public class GameStateManager : MonoBehaviour
 
     void Win() 
     { // Instantiate a temporary object for the win screen
+
+         
         GameObject winObj = new GameObject("Win Screen");
         winObj.AddComponent<WinScreen>();
         winObj.GetComponent<WinScreen>().score = Score;
         SceneManager.LoadScene("WinScene");
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -55,6 +58,15 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            if (Phase == 1){
+                Phase = 2;
+            }
+            else if (Phase == 2){
+                OnEnd();
+            }
+
+        }
+
     }
 }

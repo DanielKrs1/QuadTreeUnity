@@ -33,6 +33,7 @@ public class Target : MonoBehaviour
         // TODO: Go to random position
         // TODO: Scale object to size based on Type.Size
         // TODO: Set sprite based on Type.Sprite
+
         gameObject.SetActive(true);
 
     }

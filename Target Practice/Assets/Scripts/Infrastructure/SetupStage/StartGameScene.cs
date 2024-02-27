@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SetupUI : MonoBehaviour
+
+public class StartGameScene : MonoBehaviour
 {
-    // TODO: Everything. I have legitimately no idea how to do UI pain
-
-    // I mean it's sort of done now? Like it's not good but there's some UI 
-     
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +16,9 @@ public class SetupUI : MonoBehaviour
     void Update()
     {
         
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
