@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class SprinterStateRunning : ISprinterState
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Act()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // PATTERN 6: STATE
     }
 }

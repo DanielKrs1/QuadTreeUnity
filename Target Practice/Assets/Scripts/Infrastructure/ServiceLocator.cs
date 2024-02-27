@@ -8,6 +8,7 @@ public class ServiceLocator : MonoBehaviour
     public GameObject BulletPrefab;
     public GameObject BombPrefab;
     public GameObject TargetPrefab;
+    public GameObject ExplosionPrefab;
 
     private static ServiceLocator _instance;
     public static ServiceLocator Instance { get { return _instance; } }
@@ -23,6 +24,8 @@ public class ServiceLocator : MonoBehaviour
     public static BulletFactory BulletFactory { get; private set; }
     public static BombFactory BombFactory { get; private set; }
     public static GameStateManager GameState { get; private set; }
+
+    public static QuadTree<Target> QuadTree { get; private set; }
     protected void Awake()
     {
         if (_instance != null && _instance != this) // PATTERN 1: SINGLETON
@@ -36,6 +39,7 @@ public class ServiceLocator : MonoBehaviour
 
         Broker = new Broker();
         if (Invoker == null) Invoker = new Invoker();
+        if (QuadTree == null) QuadTree = new QuadTree<Target>(new Rect(0, 0, 300, 200));
         if (Pool == null)
         {
             Pool = gameObject.AddComponent<TargetPool>();

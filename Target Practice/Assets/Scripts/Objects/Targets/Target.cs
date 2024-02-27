@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    // TODO: Actually do things, look up type object
     public TargetType Type; // PATTERN 9: TYPE OBJECT
-    public int CurHealth; // TODO: Set to max health on instantiation
+    public int CurHealth; 
     public bool IsDead;
 
     public void TakeDamage(int damage)
@@ -20,6 +19,8 @@ public class Target : MonoBehaviour
     }
     public void Die()
     {
+        ServiceLocator.QuadTree.Remove(this);
+        transform.position = new Vector3(-500,-500,0);
         ServiceLocator.Broker.PubDeath(this);
         gameObject.SetActive(false);
         IsDead = true;
@@ -29,10 +30,10 @@ public class Target : MonoBehaviour
         Type = ServiceLocator.Types.GetRandomType();
         CurHealth = Type.MaxHealth;
         IsDead = false;
-        transform.position = new Vector3(Random.Range(0f, 300f), Random.Range(0f, 200f), -1);
+        transform.position = new Vector3(Random.Range(0f, 300f), Random.Range(0f, 200f), 0);
         transform.localScale = new Vector3(Type.Size, Type.Size, Type.Size) * 20;
         gameObject.GetComponent<SpriteRenderer>().sprite = Type.Sprite;
-
+        ServiceLocator.QuadTree.Add(this);
         gameObject.SetActive(true);
 
     }
