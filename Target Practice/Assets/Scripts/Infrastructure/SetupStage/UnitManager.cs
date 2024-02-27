@@ -11,7 +11,7 @@ public class UnitManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject[] units;
     public int[] prices;
-    public TMP_Text[] buttons;
+    public GameObject[] buttons;
 
     public float SpawnXRange = 5.0f;
     public float SpawnYRange = 5.0f;
@@ -30,6 +30,7 @@ public class UnitManager : MonoBehaviour
         panel = GameObject.Find("BuyPanel");
         ServiceLocator.Broker.SubEnd(OnEnd);
         ServiceLocator.Broker.SubStart(OnStart);
+        setUnitType(0);
     }
 
     public void OnEnd()
@@ -70,6 +71,18 @@ public class UnitManager : MonoBehaviour
     public void setUnitType(int unitID)
     {
         currentUnitType = unitID;
+
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if (i == unitID)
+            {
+                buttons[i].GetComponent<UnityEngine.UI.Image>().color = Color.green;
+            }
+            else
+            {
+                buttons[i].GetComponent<UnityEngine.UI.Image>().color = Color.white;
+            }
+        }
     }
     public void BuyUnit(int unitID, Vector3 inputPosititon)
     {

@@ -11,13 +11,11 @@ public class TargetPool : MonoBehaviour
 
     public void SummonTargets(int targets)
     {
+        Debug.Log("Summoning " + targets + " targets");
         for (int i = 0; AliveTargets < targets; i++)
         {
-            if (Targets[i].IsDead)
-            {
                 Targets[i].Initialize();
                 AliveTargets++;
-            }
         }
     }
 
@@ -29,9 +27,21 @@ public class TargetPool : MonoBehaviour
             ServiceLocator.Broker.PubEnd();
         }
     }
+
+    void OnEnd()
+    { // cleanup
+        AliveTargets = 0;
+        for (int i = 0; i < Targets.Count; i++)
+        {
+            Targets[i].gameObject.SetActive(false);
+            Targets[i].IsDead = true;
+        }
+    }
     void Start()
     {
+        Targets = new List<Target>();
         ServiceLocator.Broker.SubDeath(OnDeath);
+        ServiceLocator.Broker.SubEnd(OnEnd);
         AliveTargets = 0;
         for (int i = 0; i < TargetCount; i++)
         {
