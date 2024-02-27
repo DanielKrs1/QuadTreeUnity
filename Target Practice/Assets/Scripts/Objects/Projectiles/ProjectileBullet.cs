@@ -7,7 +7,7 @@ public class ProjectileBullet : Projectile
     public override void Initialize(Transform target)
     {
         Aim(target);
-        Move(25.0f);
+        Move(55.0f);
     }
 
     void OnTriggerEnter(Collider other)
@@ -15,7 +15,7 @@ public class ProjectileBullet : Projectile
         Target target = other.gameObject.GetComponent<Target>();
         if (target != null)
         {
-            target.TakeDamage(3);
+            target.TakeDamage(2);
             Destroy(gameObject);
         }
     }

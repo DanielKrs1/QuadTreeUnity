@@ -45,12 +45,12 @@ public abstract class Unit : MonoBehaviour
         ServiceLocator.Broker.UnsubStart(OnStart);
         ServiceLocator.Broker.UnsubEnd(OnEnd);
     }
-    protected void Fire(Target target)
+    public void Fire(Target target)
     {
         Fire(target.transform);
     }
 
-    protected void Fire(Transform target)
+    public void Fire(Transform target)
     {
         _fact.Summon(transform.position, target);
     }
@@ -66,18 +66,24 @@ public abstract class Unit : MonoBehaviour
     {
         return NormDir(target.transform.position);
     }
-    protected void Aim(Vector3 target)
+    public void Aim(Vector3 target)
     {
         Vector3 diff = NormDir(target);
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
     }
-    protected void Aim(Transform target)
+    public void Aim(Target target)
     {
-        Aim(target.position);
+        if (target != null) Aim(target.transform.position);
+        else Aim(new Vector3(Random.Range(0, 300), Random.Range(0, 200), 0));
     }
 
-    protected Target strongestWithinRange(float range)
+    public void MoveForward(float speed)
+    {
+        transform.position += transform.up * speed * Time.deltaTime;
+    }
+
+    public Target strongestWithinRange(float range)
     {
         List<Target> _targets = ServiceLocator.QuadTree.Query(transform.position, range);
         if (_targets.Count == 0)
@@ -104,7 +110,7 @@ public abstract class Unit : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
         if (transform.position.x < 0 || transform.position.x > 300 || transform.position.y < 0 || transform.position.y > 200)
         {
-            if (_curTarget != null) Aim(_curTarget.transform);
+            Aim(_curTarget);
         }
         if (Time.time > _nextActionTime)
         {

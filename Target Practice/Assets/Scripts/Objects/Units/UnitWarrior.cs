@@ -24,21 +24,15 @@ public class UnitWarrior : Unit
         {
             cooldownCounter = 0;
             _curTarget = strongestWithinRange(50.0f);
-            Aim(_curTarget.transform);
+            Aim(_curTarget);
         }
-        if (_curTarget == null)
-        {
-            Aim(new Vector3(Random.Range(0, 300), Random.Range(0, 200), 0));
-        }
-        else
-        {
-            Fire(_curTarget);
-        }
+        if (_curTarget != null) Fire(_curTarget);
+
     }
 
     protected override void Move()
     {
-        transform.position += transform.up * 40 * Time.deltaTime;
+        MoveForward(40);
     }
 }
 

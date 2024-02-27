@@ -180,8 +180,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Target Practice!\nKill the squares as fast as possible, with your units.\n\nControls:\nWASD:
-    Move camera\n9/0: Zoom in and out\n \nBuy phase:\nClick to select a unit type\nShift-click
+  m_text: "Target Practice!\nKill the squares as fast as possible, with your units.\nTry
+    to get a high score!\nYou get score and money by killing units faster.\nIf you
+    save money after a round, you also get bonus score!\n\nControls:\nWASD: Move
+    camera\n9/0: Zoom in and out\n \nBuy phase:\nClick to select a unit type\nShift-click
     to buy\nZ: Undo\nR: Redo"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -209,7 +211,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.85
+  m_fontSize: 21.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -245,7 +247,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -32.97751}
+  m_margin: {x: 0, y: 0, z: -136.32617, w: -147.2818}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

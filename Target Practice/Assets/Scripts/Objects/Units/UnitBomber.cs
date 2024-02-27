@@ -16,19 +16,12 @@ public class UnitBomber : Unit
     protected override void DoOnCooldown()
     {
         _curTarget = strongestWithinRange(100.0f);
-        if (_curTarget == null)
-        {
-            Aim(new Vector3(Random.Range(0, 300), Random.Range(0, 200), 0));
-        }
-        else
-        {
-            Aim(_curTarget.transform);
-            Fire(_curTarget);
-        }
+        Aim(_curTarget);
+        if (_curTarget != null) Fire(_curTarget);
     }
 
     protected override void Move()
     {
-        transform.position += transform.up * 25 * Time.deltaTime;
+        MoveForward(25);
     }
 }

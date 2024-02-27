@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface ISprinterState
 { // PATTERN 6: STATE
-    void Act();
+    void Act(UnitSprinter sprinter);
+    void Change(UnitSprinter sprinter);
 }
