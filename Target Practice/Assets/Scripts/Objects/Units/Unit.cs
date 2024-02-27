@@ -40,6 +40,11 @@ public abstract class Unit : MonoBehaviour
         _nextActionTime = Time.time;
     }
 
+    public void UnsubAll()
+    {
+        ServiceLocator.Broker.UnsubStart(OnStart);
+        ServiceLocator.Broker.UnsubEnd(OnEnd);
+    }
     protected void Fire(Target target)
     {
         _fact.Summon(transform.position, target.transform);

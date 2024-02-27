@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class TargetPool : MonoBehaviour
 { // PATTERN 3: OBJECT POOL
-    // TODO: List of targets, keep track of alive/dead, be able to summon N targets
-    // when all targets are dead send the End message
-
     public GameObject Prefab;
     public List<Target> Targets;
     public int TargetCount = 1600;

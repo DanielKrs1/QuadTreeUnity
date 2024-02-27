@@ -26,7 +26,12 @@ public class CommandBuyUnit : ICommand
     }
     public void Undo()
     {
-        if (myUnit != null) Object.Destroy(myUnit);
+        if (myUnit != null)
+        { 
+            myUnit.GetComponent<Unit>().UnsubAll();
+            Object.Destroy(myUnit);
+            ServiceLocator.GameState.SpendMoney(-price);
+        }
     }
 
 }

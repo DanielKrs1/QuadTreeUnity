@@ -8,24 +8,23 @@ using UnityEngine.SceneManagement;
 public class WinScreen : MonoBehaviour
 {
     public int score;
-    TMP_Text winText;
+    TextMeshProUGUI winText;
     // Start is called before the first frame update
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        SceneManager.activeSceneChanged += ChangedScene;
+        SceneManager.sceneLoaded += ChangedScene;
     }
 
-    void ChangedScene(Scene current, Scene next) {
-        if (next.name == "WinScene") {
-            winText = GameObject.Find("WinText").GetComponent<TMP_Text>();
-            winText.text = "Your score was: "+ score;
+    void ChangedScene(Scene next, LoadSceneMode mode) {
+        if (next.name == "GameScene") {
+            SceneManager.sceneLoaded -= ChangedScene;           
+            Destroy(this.gameObject);
         }
     }
 
     void PlayAgain()
     {
         SceneManager.LoadScene("GameScene");
-        Destroy(this.gameObject);
     }
 }
