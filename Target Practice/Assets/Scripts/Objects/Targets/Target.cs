@@ -5,7 +5,6 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     // TODO: Actually do things, look up type object
-    public int ID; // For the object pool to easily find it when it dies
     public TargetType Type; // PATTERN 9: TYPE OBJECT
     public int CurHealth; // TODO: Set to max health on instantiation
     public bool IsDead;
@@ -30,9 +29,9 @@ public class Target : MonoBehaviour
         Type = ServiceLocator.Types.GetRandomType();
         CurHealth = Type.MaxHealth;
         IsDead = false;
-        // TODO: Go to random position
-        // TODO: Scale object to size based on Type.Size
-        // TODO: Set sprite based on Type.Sprite
+        transform.position = new Vector3(Random.Range(0f, 300f), Random.Range(0f, 200f), -1);
+        transform.localScale = new Vector3(Type.Size, Type.Size, Type.Size) * 20;
+        gameObject.GetComponent<SpriteRenderer>().sprite = Type.Sprite;
 
         gameObject.SetActive(true);
 
@@ -43,4 +42,5 @@ public class Target : MonoBehaviour
         IsDead = true;
         gameObject.SetActive(false);
     }
+
 }

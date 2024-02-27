@@ -41,8 +41,7 @@ public class Invoker
         undoneCommands.Clear();
     }
 
-    void Start()
-    {
+    public Invoker()    {
         ServiceLocator.Broker.SubStart(OnStart);
     }
 }

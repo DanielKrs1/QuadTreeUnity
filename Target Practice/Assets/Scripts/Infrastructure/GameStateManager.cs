@@ -22,7 +22,7 @@ public class GameStateManager : MonoBehaviour
         Phase = 1;
     }
     void OnStart() {
-        Phase = 1;
+        Phase = 2;
     }
     public bool SpendMoney(int m) {
         if (Money >= m) {
@@ -50,6 +50,7 @@ public class GameStateManager : MonoBehaviour
         Money = 1000;
         Phase = 1; // buy
         Round = 1;
+        Score = 0;
         ServiceLocator.Broker.SubDeath(OnDeath);
         ServiceLocator.Broker.SubEnd(OnEnd);
         ServiceLocator.Broker.SubStart(OnStart);
@@ -58,14 +59,13 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) {
+        if (Input.GetKeyDown(KeyCode.Q)) { // Start round
             if (Phase == 1){
-                Phase = 2;
+                ServiceLocator.Broker.PubStart();
+                Score += 10;
+            } else {
+                ServiceLocator.Broker.PubEnd();
             }
-            else if (Phase == 2){
-                OnEnd();
-            }
-
         }
 
     }

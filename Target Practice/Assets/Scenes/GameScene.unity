@@ -1593,7 +1593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475561290}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2085,10 +2085,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2097,8 +2097,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Sprinter
-
-    Count: 0
 
     Cost: 50'
 --- !u!222 &638189609
@@ -2642,6 +2640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757654791}
   - component: {fileID: 757654790}
+  - component: {fileID: 757654792}
   m_Layer: 0
   m_Name: Services
   m_TagString: Untagged
@@ -2664,7 +2663,7 @@ MonoBehaviour:
   TypeJSONPath: types
   BulletPrefab: {fileID: 0}
   BombPrefab: {fileID: 0}
-  TargetPrefab: {fileID: 0}
+  TargetPrefab: {fileID: 4114690869890238140, guid: a671872f6ead2ac47be7aaf1a559cc32, type: 3}
 --- !u!4 &757654791
 Transform:
   m_ObjectHideFlags: 0
@@ -2680,6 +2679,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &757654792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757654789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066e8b54560ea239094c309f322774dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetCount: e80300004c040000e20400007805000040060000
 --- !u!1 &807887694
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,7 +3241,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1033889170}
   - component: {fileID: 1033889169}
-  - component: {fileID: 1033889171}
   m_Layer: 0
   m_Name: UnitManager
   m_TagString: Untagged
@@ -3254,15 +3265,19 @@ MonoBehaviour:
   - {fileID: 1335390275066427819, guid: 42e4f3a456ac5da49bdaffc135c3b2c1, type: 3}
   - {fileID: 1335390275066427819, guid: 282d4b4ab5433aa44b4d5320adbb1a54, type: 3}
   prices: 320000003200000032000000
+  buttons:
+  - {fileID: 1248006888}
+  - {fileID: 679263654}
+  - {fileID: 346565136}
   SpawnXRange: 2
   SpawnYRange: 2
   FirstSpawnTime: 2
   SpawnIntervalConst: 1
-  isSummoning: 1
   secondToLastClick: {x: 0, y: 0, z: 0}
   lastClick: {x: 0, y: 0, z: 0}
   mainCamera: {fileID: 519420028}
   currentUnitType: 0
+  panel: {fileID: 0}
 --- !u!4 &1033889170
 Transform:
   m_ObjectHideFlags: 0
@@ -3278,19 +3293,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1033889171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033889168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb6f8458fac0f2b4f81cacf2915d123d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1334022369}
 --- !u!1 &1063750847
 GameObject:
   m_ObjectHideFlags: 0
@@ -3429,10 +3431,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3441,8 +3443,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Warrior
-
-    Count: 0
 
     Cost: 50'
 --- !u!222 &1129990747
@@ -4080,7 +4080,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -6015,10 +6015,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -6027,8 +6027,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Bomber
-
-    Count: 0
 
     Cost: 50'
 --- !u!222 &1972999396

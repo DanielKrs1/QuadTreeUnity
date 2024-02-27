@@ -34,7 +34,7 @@ public class ServiceLocator : MonoBehaviour
             _instance = this;
         }
 
-        if (Broker == null) Broker = new Broker();
+        Broker = new Broker();
         if (Invoker == null) Invoker = new Invoker();
         if (Pool == null)
         {

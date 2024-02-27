@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class TargetPool : MonoBehaviour
 { // PATTERN 3: OBJECT POOL
-    // TODO: List of targets, keep track of alive/dead, be able to summon N targets
-    // when all targets are dead send the End message
-
     public GameObject Prefab;
     public List<Target> Targets;
     public int TargetCount = 1600;
@@ -14,13 +11,11 @@ public class TargetPool : MonoBehaviour
 
     public void SummonTargets(int targets)
     {
+        Debug.Log("Summoning " + targets + " targets");
         for (int i = 0; AliveTargets < targets; i++)
         {
-            if (Targets[i].IsDead)
-            {
                 Targets[i].Initialize();
                 AliveTargets++;
-            }
         }
     }
 
@@ -32,9 +27,21 @@ public class TargetPool : MonoBehaviour
             ServiceLocator.Broker.PubEnd();
         }
     }
+
+    void OnEnd()
+    { // cleanup
+        AliveTargets = 0;
+        for (int i = 0; i < Targets.Count; i++)
+        {
+            Targets[i].gameObject.SetActive(false);
+            Targets[i].IsDead = true;
+        }
+    }
     void Start()
     {
+        Targets = new List<Target>();
         ServiceLocator.Broker.SubDeath(OnDeath);
+        ServiceLocator.Broker.SubEnd(OnEnd);
         AliveTargets = 0;
         for (int i = 0; i < TargetCount; i++)
         {
