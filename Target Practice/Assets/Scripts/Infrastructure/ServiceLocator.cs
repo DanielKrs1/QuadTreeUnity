@@ -60,4 +60,9 @@ public class ServiceLocator : MonoBehaviour
 
     }
 
+    void OnDrawGizmos()
+    {
+        QuadTree.DrawDebugGizmos();
+    }
+
 }
